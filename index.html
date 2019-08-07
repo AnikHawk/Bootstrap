@@ -45,7 +45,7 @@
 
                 </ul>
                 <span class="navbar-text ">
-                    <a data-toggle="modal" data-target="#loginModal">
+                    <a id="loginButton">
                         <span class="fa fa-sign-in"></span> Login</a>
                 </span>
             </div>
@@ -92,8 +92,6 @@
     <header class="jumbotron">
         <div class="container">
 
-
-
             <div class="row row-header">
                 <div class="col-12 col-sm-6">
                     <h1>Ristorante con Fusion</h1>
@@ -107,7 +105,7 @@
                 </div>
 
                 <div class="col-sm-3 text-center align-self-center">
-                    <a class="btn btn-warning btn-lg pl-5 pr-5 button-block" role="button" href="" data-toggle="modal" data-target="#reserveModal">
+                    <a class="btn btn-warning btn-lg pl-5 pr-5 button-block" role="button" id="reserveButton">
                         <span class="text-white"> Reserve Table </span>
                     </a>
                 </div>
@@ -202,7 +200,6 @@
     </div>
 
     <div class=" container ">
-
         <div class="row row-content">
             <div class="col-12">
                 <div id="mycarousel" class="carousel slide" data-ride="carousel">
@@ -254,12 +251,11 @@
                             <span class="carousel-control-next-icon"></span>
                         </a>
 
-                            <button class="btn btn-danger btn-sm" id="carouselButton">
-                                <span class="fa fa-pause"></span>
-                            </button>
+                        <button class="btn btn-danger btn-sm" id="carouselButton">
+                            <span class="fa fa-pause"></span>
+                        </button>
 
 
-                        </div>
                     </div>
                 </div>
             </div>
@@ -381,18 +377,18 @@
         <script src="node_modules/bootstrap/dist/js/bootstrap.min.js "></script>
         <script>
             $(document).ready(function() {
+
                 $("#mycarousel").carousel({
-                    interval: 1000
+                    interval: 3000
                 });
 
                 $("#carouselButton").click(function() {
-                    if($("#carouselButton").children("span").hasClass("fa-pause")){
+                    if ($("#carouselButton").children("span").hasClass("fa-pause")) {
                         $("#mycarousel").carousel("pause");
                         $("#carouselButton").children("span").removeClass("fa-pause");
                         $("#carouselButton").children("span").addClass("fa-play");
 
-                    }
-                    else{
+                    } else {
                         $("#mycarousel").carousel("cycle");
                         $("#carouselButton").children("span").removeClass("fa-play");
                         $("#carouselButton").children("span").addClass("fa-pause");
@@ -400,7 +396,13 @@
 
                 });
 
+                $("#loginButton").click(function() {
+                    $("#loginModal").modal("toggle");
+                });
 
+                $("#reserveButton").click(function() {
+                    $("#reserveModal").modal("toggle");
+                });
 
             });
         </script>
